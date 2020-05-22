@@ -1,2 +1,9 @@
 # docker-lamp
-docker で lamp環境
+
+作ったファイルを src ディレクトリに
+
+```bash
+docker-compose up -d
+```
+
+8080 番ポートで確認
