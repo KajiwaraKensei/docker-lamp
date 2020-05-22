@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="jp">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sample</title>
 </head>
+
 <body>
   <!-- これはHTMLのコメントです -->
   <h4>0J01009 梶原健成</h4>
@@ -25,4 +27,5 @@
   echo ”ダブルクォーテーションでは、変数の値 .$num. は表示されます。”;
   ?>
 </body>
+
 </html>
