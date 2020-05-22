@@ -1,6 +1,6 @@
 # docker-lamp
 
-作ったファイルを src ディレクトリに
+作ったファイルを web01009 ディレクトリに
 
 ```bash
 docker-compose up -d
