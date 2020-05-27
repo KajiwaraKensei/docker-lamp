@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>checkbox.html</title>
+  </head>
+  <body>
+    <h4>1組 9番 梶原健成</h4>
+    <p>チェックボックス</p>
+    <p>あなたの好きな果物を選んでください。</p>
+    <form action="checkbox.php" method="post">
+      <input
+        type="checkbox"
+        name="fruits[]"
+        value="オレンジ"
+        id="orange"
+        checked
+      /><label for="orange">オレンジ</label>
+      <input type="checkbox" name="fruits[]" value="リンゴ" id="apple" /><label
+        for="apple"
+        >リンゴ</label
+      >
+      <input type="checkbox" name="fruits[]" value="メロン" id="merlon" /><label
+        for="merlon"
+        >メロン</label
+      >
+      <input type="submit" value="送信" />
+    </form>
+  </body>
+</html>
