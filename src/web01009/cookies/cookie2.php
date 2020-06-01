@@ -1,3 +1,12 @@
+<?php 
+if (isset($_POST['user_name']) && $_POST['user_name'] != '') {
+  setcookie("cookie_name", $_POST['user_name'], time() + 10);
+  $user_name = $_POST['user_name'];
+}else{
+  $user_name = false;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -9,9 +18,8 @@
 <body>
   <h3>Cookie2</h3>
   <?php
-if (isset($_POST['user_name']) && $_POST['user_name'] != '') {
-    setcookie("cookie_name", $_POST['user_name'], time() + 10);
-    $user_name = $_POST['user_name'];
+if ($user_name) {
+    echo $user_name . "さん、ようこそ!";
     echo '<a href="cookie3.php">クッキーデータを確認する</a>';
 } else {
     echo '名前が入力されていません。 ';
