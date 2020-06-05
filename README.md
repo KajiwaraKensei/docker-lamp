@@ -1,14 +1,21 @@
 # docker-lamp
-
-作ったファイルを web01009 ディレクトリに
-
+起動
 ```bash
 docker-compose up -d
 ```
 
-8080 番ポートで確認
+
+# PHP
+作ったファイルを src ディレクトリに
+```bash
+docker exec -it php bash
+```
+[localhost:8080](https://localhost:8080)
 
 # mysql
 ```bash
 docker exec -it mysql bash
 ```
+
+# php_my_admin
+[localhost:8000](https://localhost:8000)
