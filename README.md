@@ -10,7 +10,7 @@ docker-compose up -d
 ```bash
 docker exec -it php bash
 ```
-[8080](https://localhost:8080)番ポートで確認
+[localhost:8080](https://localhost:8080)
 
 # mysql
 ```bash
