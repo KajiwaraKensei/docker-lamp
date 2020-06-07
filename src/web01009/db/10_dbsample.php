@@ -6,7 +6,9 @@
   <title>dbsample.php</title>
 </head>
 
-<body><br><?php
+<body>
+  <div>
+  <?php
 // $dsn = 'mysql:host=localhost;dbname=php;charset=utf8';
 $dsn = 'mysql:host=mysql;dbname=php;charset=utf8';
 $user = 'kobe';
@@ -26,7 +28,8 @@ try {
     die();
 }
 $pdo = null;
-?>
+?>  </div>
+
   <hr>
   <h4>○○組　□□□番　神戸電子</h4>
 </body>
