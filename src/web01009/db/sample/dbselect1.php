@@ -6,8 +6,9 @@
   <title>dbselect1.php</title>
 </head>
 
-<body><br>
-  <?php
+<body>
+  <div>
+<?php
 if (!isset($_GET['uid'])) {
     echo 'uidが指定されていません。';
 } else {
@@ -31,6 +32,8 @@ if (!isset($_GET['uid'])) {
         die();}
     $pdo = null;}
 ?>
+</div>
+
   <hr>
   <h4>1組 9番 梶原健成</h4>
 </body>

@@ -6,7 +6,8 @@
   <title>dbselect.php</title>
 </head>
 
-<body><br>
+<body>
+  <div>
   <?php
 $dsn = 'mysql:host=mysql;dbname=php;charset=utf8';
 $user = 'kobe';
@@ -27,6 +28,8 @@ try {
 }
 $pdo = null;
 ?>
+</div>
+
   <hr>
   <h4>1組 9番 梶原健成</h4>
 </body>

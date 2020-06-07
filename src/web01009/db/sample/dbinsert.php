@@ -6,8 +6,10 @@
   <title>dbinsert.php</title>
 </head>
 
-<body><br>
-  <?php
+<body><div>
+
+</div>
+<?php
 $dsn = 'mysql:host=mysql;dbname=php;charset=utf8';
 $user = 'kobe';
 $password = 'denshi';
@@ -23,8 +25,7 @@ try {
 } catch (Exception $e) {
     echo 'Error:' . $e->getMessage();die();
 }
-$pdo = null;?>
-  <hr>
+$pdo = null;?>  <hr>
   <h4>1組 9番 梶原健成</h4>
 </body>
 
