@@ -10,7 +10,7 @@ docker-compose up -d
 ```bash
 docker exec -it php bash
 ```
-[localhost:8080](https://localhost:8080)
+[localhost:80](https://localhost:80)
 
 # mysql
 ```bash
