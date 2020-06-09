@@ -20,7 +20,8 @@ echo '年齢:' . $_SESSION['age'] . '<br>';
 $oldsessid = $_COOKIE['PHPSESSID'];
 echo '<a href="session6.php?oldsessid=' . $oldsessid . '">次へ(全てのセッションデータを削除済み)</a>'
 ?>
-  <hr> 1組 9番 神戸電子
+  <hr>   <h4>1組 9番 梶原健成</h4>
+
 </body>
 
 </html>

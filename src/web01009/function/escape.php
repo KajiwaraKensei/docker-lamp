@@ -16,7 +16,7 @@ function h($s)
 </head>
 
 <body>
-  <h4>1組 9番 神戸 電子</h4>
+<h4>1組 9番 梶原健成</h4>
   送られてきた氏名は「<?=h(filter_input(INPUT_POST, 'name'))?>」です。<br> <a href="escape.html">戻る</a>
 </body>
 

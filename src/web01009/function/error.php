@@ -14,7 +14,7 @@ session_destroy();
 </head>
 
 <body>
-  <h4>○○組 □□□番 神戸 電子</h4>
+  <h4>1組 9番 梶原健成</h4>
   <?php
 // エラーメッセージを表示する
 echo "エラー内容:" . $_SESSION['message'] . "<br>";

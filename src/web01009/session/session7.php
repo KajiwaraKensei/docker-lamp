@@ -16,7 +16,7 @@ echo 'New Session ID:' . $_COOKIE['PHPSESSID'] . '<br>';
 ?>
   <a href="session1.php">最初に戻る</a>
   <hr>
-  1組 9番 神戸電子
+  <h4>1組 9番 梶原健成</h4>
 </body>
 
 </html>
