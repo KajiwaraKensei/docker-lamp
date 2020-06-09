@@ -19,7 +19,8 @@ echo '年齢:' . $_SESSION['age'] . '<br>';
 $oldsessid = $_GET['oldsessid'];
 echo '<a href="session7.php?oldsessid=' . $oldsessid . '">新しいセッション開始</a>';
 ?>
-  <hr> 1組 9番 神戸電子
+  <hr>   <h4>1組 9番 梶原健成</h4>
+
 </body>
 
 </html>

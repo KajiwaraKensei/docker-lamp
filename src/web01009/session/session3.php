@@ -22,7 +22,7 @@ echo '職業:' . $_POST['job'] . '<br>';
     <input type="submit" value="送信">
   </form>
   <hr>
-  1組 9番 神戸電子
+  <h4>1組 9番 梶原健成</h4>
 </body>
 
 </html>
