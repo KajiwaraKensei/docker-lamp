@@ -9,7 +9,7 @@
 <body>
   <div>
 <?php
-$dsn = 'mysql:host=mysql;dbname=php;charset=utf8';
+$dsn = 'mysql:host=localhost;dbname=php;charset=utf8';
 $user = 'kobe';
 $password = 'denshi';
 try {
