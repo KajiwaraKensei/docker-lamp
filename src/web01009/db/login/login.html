@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+  <meta charset="UTF‒8">
+  <title>ログインページ</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+  <div id="main">
+    <h2>ログインページ</h2>
+    <hr><br> ユーザーIDとパスワードを入力して、ログインしてください。<br> 初めての方は「新規ユーザー登録」後にログインしてください。<br>
+    <form method="POST" action="login.php">
+      <table id="mainTable">
+        <tr>
+          <th class="right‒align">ユーザーID:</th>
+          <td class="left‒align"><input type="text" name="login_id"></td>
+        </tr>
+        <tr>
+          <th class="right‒align">パスワード:</th>
+          <td class="left‒align"><input type="password" name="login_pass"></td>
+        </tr>
+        <tr>
+          <th>&nbsp;</th>
+          <td class="left‒align"><input type="submit" value="ログイン"></td>
+        </tr>
+      </table>
+    </form>
+    <p><a href="register.html">新規ユーザー登録をする</a></p>
+    <hr>
+    <p>○○組 □□□番 神戸電子</p>
+  </div>
+</body>
+
+</html>
