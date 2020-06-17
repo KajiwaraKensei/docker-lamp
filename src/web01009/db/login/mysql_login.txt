@@ -6,5 +6,5 @@ grant all privileges on login.* to denshi@localhost identified by 'kobe';
 
 use login;
 
-create table examination(ident varchar(8) binary primary key,
+create table password(ident varchar(8) binary primary key,
 pass varchar(12) not null, name varchar(50) not null);
