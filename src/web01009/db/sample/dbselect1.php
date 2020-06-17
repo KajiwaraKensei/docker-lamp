@@ -8,12 +8,13 @@
 
 <body>
   <div>
-<?php
+    <?php
 if (!isset($_GET['uid'])) {
     echo 'uidが指定されていません。';
 } else {
     $uid = $_GET['uid'];
-    $dsn = 'mysql:host=mysql;dbname=php;charset=utf8';
+    $dsn = 'mysql:host=localhost;dbname=php;charset=utf8';
+    getenv('DB_HOST') && $dsn = 'mysql:host=' . getenv('DB_HOST') . ';dbname=php;charset=utf8';
     $user = 'kobe';
     $password = 'denshi';
     try {
@@ -32,7 +33,7 @@ if (!isset($_GET['uid'])) {
         die();}
     $pdo = null;}
 ?>
-</div>
+  </div>
 
   <hr>
   <h4>1組 9番 梶原健成</h4>

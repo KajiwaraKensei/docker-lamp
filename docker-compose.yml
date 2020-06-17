@@ -28,6 +28,8 @@ services:
   php:
     build: ./php
     container_name: 'php'
+    environment: 
+      DB_HOST: mysql
     volumes:
       - ./src:/var/www/html
       - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini

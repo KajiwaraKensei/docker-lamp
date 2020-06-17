@@ -8,8 +8,9 @@
 
 <body>
   <div>
-  <?php
-$dsn = 'mysql:host=mysql;dbname=php;charset=utf8';
+    <?php
+$dsn = 'mysql:host=localhost;dbname=php;charset=utf8';
+getenv('DB_HOST') && $dsn = 'mysql:host=' . getenv('DB_HOST') . ';dbname=php;charset=utf8';
 $user = 'kobe';
 $password = 'denshi';
 
@@ -28,7 +29,7 @@ try {
 }
 $pdo = null;
 ?>
-</div>
+  </div>
 
   <hr>
   <h4>1組 9番 梶原健成</h4>
