@@ -1,0 +1,26 @@
+# データベース itee の作成
+set names utf8;
+drop database if exists itee; 
+create database itee character set utf8 collate utf8_general_ci;
+# ユーザー「ipa」にパスワード「jitec」を設定し、データベース「itee」に対する全ての権限を付与
+grant all privileges on itee.* to ipa@localhost identified by 'jitec';
+# データベース itee を使用
+use itee;
+# テーブル examination の作成
+create table examination (
+ident int auto_increment primary key,
+classification mnemonic english_name rank
+target
+varchar(100), char(2),
+varchar(100), int,
+varchar(200) );
+# テーブル examination にデータを挿入
+insert into examination(classification, mnemonic, english_name, rank, target)
+values('ITパスポート試験', 'IP', 'Information Technology Passport Examination', 1, '職業人が共通に備えておくべき情報技術に関する基礎的な知識をもち，情報技術  <以下略>
+< 中略 >
+# テーブル ranks の作成
+create table ranks ( rank int primary key,  level char(4),  grade varchar(20) );
+# テーブル ranks にデータを挿入
+insert into ranks(rank, level, grade) values(1, "レベル1", "職業人に共通に求められる基礎知識"); insert into ranks(rank, level, grade) values(2, "レベル2", "基本的知識・技術");
+insert into ranks(rank, level, grade) values(3, "レベル3", "応用的知識・技術");
+insert into ranks(rank, level, grade) values(4, "レベル4", "高度な知識・技術");

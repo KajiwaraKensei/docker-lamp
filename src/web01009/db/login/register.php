@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="content-type" charset="utf-8">
   <title>ユーザー登録</title>
   <link rel="stylesheet" href="login.css">
 </head>
