@@ -8,8 +8,6 @@
 
 <body>
   <div>
-
-
     <?php
 require_once __DIR__ . '/classes/dbphp.php';
 $dbPhp = new DbPhp();
