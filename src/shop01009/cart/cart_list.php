@@ -1,20 +1,24 @@
+<?php require_once __DIR__ . '/../pre.php';?>
 <!DOCTYPE  html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <title>カート</title>
-<link rel="stylesheet" href="../css/shop.css">
+<link rel="stylesheet" href="<?=$shop_css?>">
 </head>
 <body>
-<h3>カート内の商品</h3>
-01組　009番　梶原健成<br>
-<hr>
+<div>
+<?php require_once __DIR__ . '/../header.php';?>
 <?php
 // カート内のすべてのデータを取り出す
-$cartItems = $cart->getItems();
+if (!isset($cart)) {
+    require_once __DIR__ . '/../classes/cart.php';
+    $cart = new Cart();
+}
+$cartItems = $cart->getItems($userId);
 if (empty($cartItems)) {
     echo '<h4>お客様のショッピングカートに商品はございません。</h4>';
-    echo '<a href="../index.php">ジャンル選択に戻る</a>';
+    echo '<a href="../index.php"><span class="button_image">ジャンル選択に戻る</span></a>';
 } else {
     ?>
 <table>
@@ -64,9 +68,12 @@ for ($i = 1; $i <= 10; $i++) {
 </tr>
 </table>
 <br>
-<a href="../index.php">ジャンル選択に戻る</a>&nbsp;&nbsp;<a href="../order/order_now.php">注文する</a>
 <?php
 }
 ?>
+<?php require_once __DIR__ . '/../footer.php';?>
+
+</div>
+
 </body>
 </html>
