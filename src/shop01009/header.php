@@ -1,7 +1,3 @@
-<?php
-require_once __DIR__ . '/pre.php';
-
-?>
 <header>
 <h2><a href="<?=$index_php?>">ようこそ!ショッピングサイトへ</a></h2> <p><?=$userName?>さん</p>
 <ul class="navi">
