@@ -5,11 +5,11 @@ require_once __DIR__ . '/dbdata.php';
 class Cart extends DbData
 {
     // 商品をカートに入れる ・・ テーブルcartに登録する
-    public function addItem($ident, $quantity)
+    public function addItem($userId, $ident, $quantity)
     {
         // すでにカート内にその商品がはいっているかどうかをチェックする
-        $sql = "select * from cart where ident = ?";
-        $stmt = $this->query($sql, [$ident]);
+        $sql = "select * from cart where userId = ? and ident = ?";
+        $stmt = $this->query($sql, [$userId, $ident]);
         $cart_item = $stmt->fetch();
         if ($cart_item) {
             // カート内にすでに入っているので、今回の注文数を追加する
@@ -18,12 +18,12 @@ class Cart extends DbData
                 $new_quantity = 10;
             }
 
-            $sql = "update cart set quantity = ? where ident = ?";
-            $result = $this->exec($sql, [$new_quantity, $ident]);
+            $sql = "update cart set quantity = ? where userId = ? and ident = ?";
+            $result = $this->exec($sql, [$new_quantity, $userId, $ident]);
         } else {
             // カート内にはまだ入っていないので登録する
-            $sql = "insert into cart values(?, ?)";
-            $result = $this->exec($sql, [$ident, $quantity]);
+            $sql = "insert into cart values(?, ?, ?)";
+            $result = $this->exec($sql, [$userId, $ident, $quantity]);
         }
     }
 
@@ -37,23 +37,23 @@ class Cart extends DbData
     }
 
     // カート内の商品を削除する
-    public function deleteItem($ident)
+    public function deleteItem($userId, $ident)
     {
-        $sql = "delete from cart where ident = ?";
-        $result = $this->exec($sql, [$ident]);
+        $sql = "delete from cart where userId = ? and ident = ?";
+        $result = $this->exec($sql, [$userId, $ident]);
     }
 
     // カート内のすべての商品を削除する
-    public function clearCart()
+    public function clearCart($userId)
     {
-        $sql = "delete from cart";
-        $result = $this->exec($sql, []);
+        $sql = "delete from cart where userId = ?";
+        $result = $this->exec($sql, [$userId]);
     }
 
     // カート内の商品の個数を変更する
-    public function changeQuantity($ident, $quantity)
+    public function changeQuantity($userId, $ident, $quantity)
     {
-        $sql = "update cart set quantity = ? where ident = ?";
-        $result = $this->exec($sql, [$quantity, $ident]);
+        $sql = "update cart set quantity = ? where userId = ? and ident = ?";
+        $result = $this->exec($sql, [$quantity, $userId, $ident]);
     }
 }

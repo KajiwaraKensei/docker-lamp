@@ -15,7 +15,7 @@ if (!isset($cart)) {
     require_once __DIR__ . '/../classes/cart.php';
     $cart = new Cart();
 }
-$cartItems = $cart->getItems(423);
+$cartItems = $cart->getItems($userId);
 if (empty($cartItems)) {
     echo '<h4>お客様のショッピングカートに商品はございません。</h4>';
 } else {
