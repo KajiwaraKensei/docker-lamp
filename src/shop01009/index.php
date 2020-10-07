@@ -1,10 +1,13 @@
+<?php
+require_once __DIR__ . '/pre.php';
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/shop.css">
-  <title>Document</title>
+  <title>ショッピングサイト</title>
+<link rel="stylesheet" href="<?=$shop_css?>">
 </head>
 <body>
   <div>
