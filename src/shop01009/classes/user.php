@@ -34,4 +34,26 @@ class User extends DbData
             return '新規登録できませんでした。管理者にお問い合わせください。';
         }
     }
+
+    public function updateUser($userId, $userName, $kana, $zip, $address, $tel, $password, $tempId)
+    {
+        $sql = "update users set userId=?, userName=?, kana=?, zip=?, address=?, tel=?, password=? where userId = ?";
+        $result = $this->exec($sql, [$userId, $userName, $kana, $zip, $address, $tel, $password, $tempId]);
+        if ($result) {
+            // 更新に成功したが、Cart内に仮のユーザーIDの商品が入っていた場合、新しいユーザーIDに置き換える // また、過去の注文履歴のユーザーIDも新しいユーザーIDに置き換える
+            if ($userId !== $tempId) {
+                $this->changeCartUserId($tempId, $userId);
+                $this->changeOrderHistoryUserId($tempId, $userId);}
+            return '';
+        } else {
+            return 'ユーザー情報の更新ができませんでした。管理者にお問い合わせください。';}
+    }
+    // ユーザーID(Eメール)を変更した場合、過去の注文履歴のユーザーID(Eメール)を新しいユーザーIDに変更する
+    public function changeOrderHistoryUserId($tempId, $userId)
+    {
+        // Orderオブジェクトを生成し、注文履歴のユーザーID(Eメール)を変更する
+        require_once __DIR__ . '/order.php';
+        $order = new Order();
+        $order->changeUserId($tempId, $userId);
+    }
 }

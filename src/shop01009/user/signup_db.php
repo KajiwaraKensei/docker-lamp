@@ -1,5 +1,6 @@
 <?php
 // 送られてきたデータを受けとる
+$kubun = $̲POST['kubun'];
 $userId = $_POST['userId'];
 $userName = $_POST["userName"];
 $kana = $_POST['kana'];
@@ -27,7 +28,11 @@ if (!is_numeric($zip) || strlen($zip) !== 7) {
 // Userオブジェクトを生成し、 ユーザー登録処理を行うsignUp( )メソッドを呼び出し、その結果のメッセージを受け取る
 require_once __DIR__ . '/../classes/user.php';
 $user = new User();
-$result = $user->signUp($userId, $userName, $kana, $zip, $address, $tel, $password, $_SESSION['userId']);
+if ($kubun === "insert") {
+    $result = $user->signUp($userId, $userName, $kana, $zip, $address, $tel, $password, $_SESSION['userId']);
+} else {
+    $result = $user->updateUser($userId, $userName, $kana, $zip, $address, $tel, $password, $_SESSION['userId']);
+}
 
 if ($result !== '') {
     $_SESSION['signup_error'] = $result;
