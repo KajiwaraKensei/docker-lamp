@@ -16,6 +16,8 @@ if (empty($result['userId'])) {
 }
 
 $userName = $result['userName'];
+$user->changeCartUserId($_SESSION['userId'], $userId);
+
 $_SESSION['userId'] = $userId;
 $_SESSION['userName'] = $userName;
 $_SESSION['kana'] = $result['kana'];

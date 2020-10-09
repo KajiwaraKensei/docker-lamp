@@ -56,4 +56,15 @@ class Cart extends DbData
         $sql = "update cart set quantity = ? where userId = ? and ident = ?";
         $result = $this->exec($sql, [$quantity, $userId, $ident]);
     }
+    public function changeUserId($tempId, $userId)
+    {
+        $sql = "select * from cart where userId = ?";
+        $stmt = $this->query($sql, [$tempId]);
+        $cart_items = $stmt->fetchAll();
+        foreach ($cart_items as $item) {
+            $this->addItem($userId, $item["ident"], $item["quantity"]);
+            $this->deleteItem($tempId, $item["ident"]);
+        }
+
+    }
 }

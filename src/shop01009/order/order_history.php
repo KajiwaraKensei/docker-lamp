@@ -33,7 +33,7 @@ function echo_total($total)
 </head>
 <body>
 <h3>注文履歴</h3>
-○○組　□□□番　神戸電子<br>
+01組　□□□番　神戸電子<br>
 <hr>
 <p>過去のご注文履歴は次の通りです。</p>
 <?php
