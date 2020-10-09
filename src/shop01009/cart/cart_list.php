@@ -18,7 +18,6 @@ if (!isset($cart)) {
 $cartItems = $cart->getItems($userId);
 if (empty($cartItems)) {
     echo '<h4>お客様のショッピングカートに商品はございません。</h4>';
-    echo '<a href="../index.php"><span class="button_image">ジャンル選択に戻る</span></a>';
 } else {
     ?>
 <table>
@@ -67,6 +66,7 @@ for ($i = 1; $i <= 10; $i++) {
     </td>
 </tr>
 </table>
+<a href="/../order/order_confirm.php"><span class="button_image2">注文する</span></a>
 <br>
 <?php
 }
