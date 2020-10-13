@@ -5,11 +5,11 @@ require_once __DIR__ . '/dbdata.php';
 class Order extends DbData
 {
     // カート内の全ての商品を注文内容として登録する
-    public function addOrder($cartItems)
+    public function addOrder($userId, $cartItems)
     {
         // 注文テーブルに登録
-        $sql = "insert into orders(orderdate) values( ? )";
-        $result = $this->exec($sql, [date("Y-m-d H:i:s")]);
+        $sql = "insert into orders(userId, orderdate) values( ?, ? )";
+        $result = $this->exec($sql, [$userId, date("Y-m-d H:i:s")]);
         // 注文番号を取得する
         $sql = "select  last_insert_id( )  from  orders";
         $stmt = $this->query($sql, []);

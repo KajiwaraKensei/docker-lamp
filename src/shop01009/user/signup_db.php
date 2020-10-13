@@ -1,6 +1,6 @@
 <?php
 // 送られてきたデータを受けとる
-$kubun = $̲POST['kubun'];
+$kubun = $_POST['kubun'];
 $userId = $_POST['userId'];
 $userName = $_POST["userName"];
 $kana = $_POST['kana'];

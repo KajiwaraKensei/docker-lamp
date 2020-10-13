@@ -1,11 +1,8 @@
 <?php
-
 session_start();
-
 if ($_SESSION['userName'] === "ゲスト") {
     header('Location: ../user/login.php');
     exit();
-
 }
 
 $userName = $_SESSION['userName'];
