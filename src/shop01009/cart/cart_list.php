@@ -66,7 +66,7 @@ for ($i = 1; $i <= 10; $i++) {
     </td>
 </tr>
 </table>
-<a href="/../order/order_confirm.php"><span class="button_image2">注文する</span></a>
+<a href="../order/order_confirm.php"><span class="button_image2">注文する</span></a>
 <br>
 <?php
 }

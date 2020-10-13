@@ -43,7 +43,7 @@ if ($result !== '') {
 $_SESSION['userId'] = $userId;
 $_SESSION['userName'] = $userName;
 $_SESSION['kana'] = $kana;
-$̲_SESSION['zip'] = $zip;
+$_SESSION['zip'] = $zip;
 $_SESSION['address'] = $address;
 $_SESSION['tel'] = $tel;
 
