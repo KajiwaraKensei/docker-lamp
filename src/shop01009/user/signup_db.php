@@ -1,6 +1,5 @@
 <?php
-// 送られてきたデータを受けとる
-$kubun = $̲POST['kubun'];
+$kubun = $_POST['kubun'];
 $userId = $_POST['userId'];
 $userName = $_POST["userName"];
 $kana = $_POST['kana'];
@@ -8,7 +7,6 @@ $zip = $_POST['zip'];
 $address = $_POST['address'];
 $tel = $_POST['tel'];
 $password = $_POST['password'];
-
 session_start();
 // バリデーションはメールアドレスと郵便番号のみとする
 // メールアドレスのバリデーションはfilter̲var() を使い、RFCに準拠しないメルアドはエラーとする
@@ -43,7 +41,7 @@ if ($result !== '') {
 $_SESSION['userId'] = $userId;
 $_SESSION['userName'] = $userName;
 $_SESSION['kana'] = $kana;
-$̲_SESSION['zip'] = $zip;
+$_SESSION['zip'] = $zip;
 $_SESSION['address'] = $address;
 $_SESSION['tel'] = $tel;
 
@@ -51,7 +49,7 @@ setcookie("userId", $userId, time() + 60 * 60 * 24 * 14, '/');
 setcookie("userName", $userName, time() + 60 * 60 * 24 * 14, '/');
 ?>
 
-<?php require_once __DIR__ . '/../util.php';?>
+<?php require_once __DIR__ . '/../util/index.php';?>
 <?php require_once __DIR__ . '/../pre.php';?>
 
 <!DOCTYPE html>

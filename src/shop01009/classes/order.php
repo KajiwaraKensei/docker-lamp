@@ -5,11 +5,11 @@ require_once __DIR__ . '/dbdata.php';
 class Order extends DbData
 {
     // カート内の全ての商品を注文内容として登録する
-    public function addOrder($cartItems)
+    public function addOrder($userId, $cartItems)
     {
         // 注文テーブルに登録
-        $sql = "insert into orders(orderdate) values( ? )";
-        $result = $this->exec($sql, [date("Y-m-d H:i:s")]);
+        $sql = "insert into orders(userId, orderdate) values( ?, ? )";
+        $result = $this->exec($sql, [$userId, date("Y-m-d H:i:s")]);
         // 注文番号を取得する
         $sql = "select  last_insert_id( )  from  orders";
         $stmt = $this->query($sql, []);
@@ -23,18 +23,27 @@ class Order extends DbData
     }
 
     // 注文履歴
-    public function getOrders()
+    public function getOrders($uid)
     {
         // 注文明細テーブルのデータを注文番号の降順で取得
         $sql = "select orderdetails.orderId, items.ident, items.name, items.maker, items.price,
               orderdetails.quantity, items.image, items.genre from orderdetails
               join items on orderdetails.itemId = items.ident
+              where orderdetails.orderId in (select orders.orderId from orders where orders.userId = ?)
               order by orderdetails.orderId desc";
-        $stmt = $this->query($sql, []);
+        $stmt = $this->query($sql, [$uid]);
         $orders = $stmt->fetchAll();
         return $orders;
     }
     public function changeUserId($tempId, $userId)
     {
+        $sql = "select * from orders where userId = ?";
+        $stmt = $this->query($sql, [$tempId]);
+        $cart_items = $stmt->fetch();
+
+        if ($cart_items) {
+            $sql = "update orders set userId = ? where userId = ?";
+            $stmt = $this->exec($sql, [$userId, $tempId]);
+        }
     }
 }
