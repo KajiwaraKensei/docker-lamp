@@ -23,18 +23,27 @@ class Order extends DbData
     }
 
     // 注文履歴
-    public function getOrders()
+    public function getOrders($uid)
     {
         // 注文明細テーブルのデータを注文番号の降順で取得
         $sql = "select orderdetails.orderId, items.ident, items.name, items.maker, items.price,
               orderdetails.quantity, items.image, items.genre from orderdetails
               join items on orderdetails.itemId = items.ident
+              where orderdetails.orderId in (select orders.orderId from orders where orders.userId = ?)
               order by orderdetails.orderId desc";
-        $stmt = $this->query($sql, []);
+        $stmt = $this->query($sql, [$uid]);
         $orders = $stmt->fetchAll();
         return $orders;
     }
     public function changeUserId($tempId, $userId)
     {
+        $sql = "select * from orders where userId = ?";
+        $stmt = $this->query($sql, [$tempId]);
+        $cart_items = $stmt->fetch();
+
+        if ($cart_items) {
+            $sql = "update orders set userId = ? where userId = ?";
+            $stmt = $this->exec($sql, [$userId, $tempId]);
+        }
     }
 }

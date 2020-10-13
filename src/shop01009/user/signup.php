@@ -45,7 +45,7 @@ if (isset($_SESSION['signup_error'])) {
       <tr><td>パスワード</td><td><input type="password" name="password" required></td></tr>
       <tr><td colspan="2"><input type="submit" value="送信"></td></tr>
     </table>
-    <input type="hidden" value="<?=$kubun?>">
+    <input type="hidden" value="<?=$kubun?>" name="kubun">
   </form>
   <?php require_once __DIR__ . '/../footer.php';?>
   </div>

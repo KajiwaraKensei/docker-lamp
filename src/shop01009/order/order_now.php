@@ -1,6 +1,6 @@
 <?php
 // Cartオブジェクトを生成する
-session_start();
+require_once __DIR__ . '/../util/checkLogin.php';
 require_once __DIR__ . '/../classes/cart.php';
 $cart = new Cart();
 
@@ -53,7 +53,6 @@ foreach ($cartItems as $item) {
 </tr>
 </table>
 <br>
-<a href="../index.php">ジャンル選択に戻る</a>&nbsp;&nbsp;<a href="order_history.php">注文履歴</a>
 <?php
 // カート内の全ての商品を削除する
 $cart->clearCart($_SESSION['userId']);

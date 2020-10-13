@@ -1,5 +1,4 @@
 <?php
-// 送られてきたデータを受けとる
 $kubun = $_POST['kubun'];
 $userId = $_POST['userId'];
 $userName = $_POST["userName"];
@@ -8,7 +7,6 @@ $zip = $_POST['zip'];
 $address = $_POST['address'];
 $tel = $_POST['tel'];
 $password = $_POST['password'];
-
 session_start();
 // バリデーションはメールアドレスと郵便番号のみとする
 // メールアドレスのバリデーションはfilter̲var() を使い、RFCに準拠しないメルアドはエラーとする

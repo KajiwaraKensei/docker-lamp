@@ -1,10 +1,5 @@
+<?php require_once __DIR__ . '/../util/checkLogin.php';?>
 <?php
-session_start();
-if ($_SESSION['userName'] === "ゲスト") {
-    header('Location: ../user/login.php');
-    exit();
-}
-
 $userName = $_SESSION['userName'];
 $zip = $_SESSION['zip'];
 $address = $_SESSION['address'];

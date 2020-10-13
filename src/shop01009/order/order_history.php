@@ -1,4 +1,6 @@
+<?php require_once __DIR__ . '/../util/checkLogin.php';?>
 <?php require_once __DIR__ . '/../pre.php';?>
+
 
 <?php
 // Orderオブジェクトを生成する
@@ -7,7 +9,7 @@ require_once __DIR__ . '/../classes/order.php';
 $order = new Order();
 
 // 注文明細テーブルのデータを注文番号の降順で取得
-$orders = $order->getOrders();
+$orders = $order->getOrders($_SESSION['userId']);
 
 // 注文履歴テーブルのタイトル部を表示する関数を用意
 function echo_title()
@@ -32,11 +34,10 @@ function echo_total($total)
 <link rel="stylesheet" href="<?=$shop_css?>">
 </head>
 <body>
-<h3>注文履歴</h3>
-01組　□□□番　神戸電子<br>
-<hr>
-<p>過去のご注文履歴は次の通りです。</p>
-<?php
+    <div>
+        <?php require_once __DIR__ . '/../header.php';?>
+        <p><?=count($orders) ? "過去のご注文履歴は次の通りです。" : "お客様のご注文履歴はございません。"?></p>
+        <?php
 // 注文番号ごとにテーブルで注文商品を表示する
 $orderId = 0; // 注文番号の切り替わりをチェックする
 $total = 0; // 注文ごとの合計金額
@@ -51,19 +52,18 @@ foreach ($orders as $item) {
     }
     $total += $item['price'] * $item['quantity'];
     ?>
-      <tr>
-      <td class="td_mini_img"><img class="mini_img" src="../images/<?=$item['image']?>"></td>
-      <td class="td_center"><?=$item['orderId']?></td>
-      <td class="td_item_name"><?=$item['name']?></td>
-      <td class="td_item_maker"><?=$item['maker']?></td>
-      <td class="td_right td_item_price">&yen;<?=number_format($item['price'])?></td>
-      <td class="td_right"><?=$item['quantity']?></td>
-      <td class="td_right td_item_total">&yen;<?=number_format($item['price'] * $item['quantity'])?></td>
-      </tr>
-<?php
-}
-echo_total($total); // 注文履歴テーブルの合計金額部を表示
-?>
-<a href="../index.php">ジャンル選択に戻る</a>
+        <tr>
+        <td class="td_mini_img"><img class="mini_img" src="../images/<?=$item['image']?>"></td>
+        <td class="td_center"><?=$item['orderId']?></td>
+        <td class="td_item_name"><?=$item['name']?></td>
+        <td class="td_item_maker"><?=$item['maker']?></td>
+        <td class="td_right td_item_price">&yen;<?=number_format($item['price'])?></td>
+        <td class="td_right"><?=$item['quantity']?></td>
+        <td class="td_right td_item_total">&yen;<?=number_format($item['price'] * $item['quantity'])?></td>
+        </tr>
+        <?php }?>
+        <?php count($orders) && echo_total($total)?>
+        <?php require_once __DIR__ . '/../footer.php';?>
+    </div>
 </body>
 </html>
