@@ -9,7 +9,7 @@ require_once __DIR__ . '/../classes/order.php';
 $order = new Order();
 
 // 注文明細テーブルのデータを注文番号の降順で取得
-$orders = $order->getOrders($_SESSION['userId']);
+$orders = $order->getOrders($userId);
 
 // 注文履歴テーブルのタイトル部を表示する関数を用意
 function echo_title()
@@ -36,7 +36,7 @@ function echo_total($total)
 <body>
     <div>
         <?php require_once __DIR__ . '/../header.php';?>
-        <p><?=count($orders) ? "過去のご注文履歴は次の通りです。" : "お客様のご注文履歴はございません。"?></p>
+        <?=count($orders) ? "<p>過去のご注文履歴は次の通りです。</p>" : "<h4>お客様のご注文履歴はございません。</h4>"?>
         <?php
 // 注文番号ごとにテーブルで注文商品を表示する
 $orderId = 0; // 注文番号の切り替わりをチェックする

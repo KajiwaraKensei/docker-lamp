@@ -49,7 +49,7 @@ setcookie("userId", $userId, time() + 60 * 60 * 24 * 14, '/');
 setcookie("userName", $userName, time() + 60 * 60 * 24 * 14, '/');
 ?>
 
-<?php require_once __DIR__ . '/../util.php';?>
+<?php require_once __DIR__ . '/../util/index.php';?>
 <?php require_once __DIR__ . '/../pre.php';?>
 
 <!DOCTYPE html>

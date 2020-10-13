@@ -1,5 +1,5 @@
 <?php require_once __DIR__ . '/../pre.php';?>
-<?php require_once __DIR__ . '/../util.php';
+<?php require_once __DIR__ . '/../util/index.php';
 $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
 $userName = isset($_SESSION['userName']) ? $_SESSION['userName'] : '';
 $kana = isset($_SESSION['kana']) ? $_SESSION['kana'] : '';

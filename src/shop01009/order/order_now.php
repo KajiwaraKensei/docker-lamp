@@ -5,7 +5,7 @@ require_once __DIR__ . '/../classes/cart.php';
 $cart = new Cart();
 
 // カート内の全ての商品を取り出す
-$cartItems = $cart->getItems($_SESSION['userId']);
+$cartItems = $cart->getItems($userId);
 
 // Orderオブジェクトを生成する
 require_once __DIR__ . '/../classes/order.php';
@@ -13,7 +13,7 @@ $order = new Order();
 
 // カート内の全ての商品を注文内容として登録する
 // 注文テーブルordersと注文詳細テーブルorderdetailsに注文内容を登録する
-$orderId = $order->addOrder($_SESSION['userId'], $cartItems);
+$orderId = $order->addOrder($userId, $cartItems);
 ?>
 <?php require_once __DIR__ . '/../pre.php';?>
 <!DOCTYPE  html>
